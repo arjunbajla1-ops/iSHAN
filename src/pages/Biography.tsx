@@ -31,7 +31,7 @@ export default function Biography() {
         <figure className="bio-portrait">
           <div className="bio-portrait__frame">
             <ImageReveal
-              src="/images/ishan-nets.jpg"
+              src="/images/ishan-nets.webp"
               alt="Ishan Kishan lofting a shot in the nets, wearing India blue"
               objectPosition="50% 20%"
               priority

@@ -246,6 +246,7 @@ export function ImageReveal({
           src={src}
           alt={alt}
           loading={priority ? 'eager' : 'lazy'}
+          fetchPriority={priority ? 'high' : 'auto'}
           decoding="async"
           className={imgClassName}
           style={objectPosition ? { objectPosition } : undefined}

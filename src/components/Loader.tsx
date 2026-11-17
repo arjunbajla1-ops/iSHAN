@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 
 /**
- * Two seconds, once per session: a ball bounces, a line draws itself,
- * the mark fades in. Nothing more.
+ * A short, once-per-session intro: ball, line, mark. The archive never waits
+ * on it — the page beneath is already painted.
  */
 export default function Loader() {
   const reduced = useReducedMotion();
@@ -14,7 +14,7 @@ export default function Loader() {
 
   useEffect(() => {
     if (!visible) return;
-    const duration = reduced ? 350 : 2000;
+    const duration = reduced ? 250 : 700;
     const timer = window.setTimeout(() => {
       setVisible(false);
       window.sessionStorage.setItem('ik-loaded', 'true');

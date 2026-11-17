@@ -26,15 +26,39 @@ real chapter number, module and neighbours — nothing 404s.
 - **React 19 + TypeScript + Vite 7**
 - **Framer Motion 12** — page transitions, reveals, counters, chart draw
 - **React Router 7**
-- **@fontsource** — Bebas Neue, Archivo (variable), Inter (variable), Instrument Serif (self-hosted, no third-party font CDN)
+- **Self-hosted, subset fonts** — Bebas Neue, Archivo, Inter, Instrument Serif (latin only, woff2, preloaded)
 - Hand-written CSS design tokens. No CSS framework, no component library.
+- A tiny Node static server (`server.mjs`) with brotli, immutable caching and SPA fallback.
 
 ```bash
 npm install
-npm run dev       # http://localhost:5173
+npm run dev       # Vite dev server, hot reload — for editing
+npm start         # production build + brotli static server (what the preview runs)
 npm run build
 npm run typecheck
 ```
+
+## Performance
+
+The preview intentionally serves the **production build**, not the dev server:
+Vite's dev graph is ~460 module requests with no minification, which is the
+single biggest reason a page like this feels slow. What ships instead:
+
+| Asset | On the wire (brotli) |
+| --- | --- |
+| HTML | 0.6 KB |
+| CSS | 7 KB |
+| JS (React + Router + Motion + 5 pages) | 128 KB |
+| Fonts (Inter, Archivo, Bebas — latin subsets) | 62 KB |
+| Hero image (WebP) | 39 KB |
+| **Total, cold** | **~230 KB, 7 requests** |
+
+Everything except the HTML is served `immutable` for a year; the HTML is
+ETag-revalidated and returns `304` on repeat views. Fonts are subset with
+`pyftsubset` and the variable axes clipped to the weights actually used
+(Inter 300–500, Archivo 200–450), which took the font payload from 152 KB to
+104 KB total. The loader is a 700 ms intro — it never gates content, and the
+hero begins animating at 300 ms behind it.
 
 ## Design system
 

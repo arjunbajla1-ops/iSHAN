@@ -16,7 +16,7 @@ import { heroStats } from '../data/content';
 
 const entryDelay = () => {
   if (typeof window === 'undefined') return 0;
-  return window.sessionStorage.getItem('ik-loaded') === 'true' ? 0.15 : 2.05;
+  return window.sessionStorage.getItem('ik-loaded') === 'true' ? 0.05 : 0.3;
 };
 
 export default function Home() {
@@ -90,7 +90,7 @@ export default function Home() {
                 Frame 001
               </span>
               <ImageReveal
-                src="/images/ishan-hero.jpg"
+                src="/images/ishan-hero.webp"
                 alt="Ishan Kishan batting for India in blue, mid-shot, during the 2026 T20 World Cup"
                 objectPosition="56% 32%"
                 priority
@@ -240,7 +240,7 @@ export default function Home() {
       <Link className="feature-band" to="/the-210" ref={bandRef} aria-label="Chapter 06 — The 210">
         <div className="feature-band__media">
           <motion.img
-            src="/images/ishan-srh.jpg"
+            src="/images/ishan-srh.webp"
             alt="Ishan Kishan batting in Sunrisers Hyderabad colours"
             loading="lazy"
             decoding="async"

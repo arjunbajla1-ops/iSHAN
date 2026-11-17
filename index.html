@@ -16,10 +16,33 @@
     />
     <meta property="og:type" content="website" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="preload" as="image" href="/images/ishan-hero.jpg" />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/fonts/bebas-neue-latin.woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/fonts/inter-latin.woff2"
+      crossorigin
+    />
+    <link rel="preload" as="image" href="/images/ishan-hero.webp" fetchpriority="high" />
+    <style>
+      html { background: #fafaf8; }
+      html[data-theme='dark'] { background: #0e0e0e; }
+    </style>
   </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      <div style="padding:40px;font-family:system-ui,sans-serif;color:#1a1a1a">
+        This archive needs JavaScript to draw its chapters. Please enable it.
+      </div>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
