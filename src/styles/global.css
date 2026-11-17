@@ -484,7 +484,7 @@ body.has-bat-cursor * {
   width: 38px;
   height: 38px;
   color: var(--ink);
-  transform: rotate(38deg) scale(1);
+  transform: rotate(45deg) scale(1);
   transform-origin: 44% 30%;
   transition: transform 0.5s var(--ease), opacity 0.4s var(--ease);
   will-change: transform;
@@ -540,16 +540,16 @@ body.has-bat-cursor * {
 }
 
 .bat-cursor[data-state='link'] .bat-cursor__bat {
-  transform: rotate(52deg) scale(1.2);
+  transform: rotate(58deg) scale(1.2);
 }
 
 .bat-cursor[data-state='text'] .bat-cursor__bat {
-  transform: rotate(38deg) scale(0.34);
+  transform: rotate(45deg) scale(0.34);
   opacity: 0.55;
 }
 
 .bat-cursor[data-state='drag'] .bat-cursor__bat {
-  transform: rotate(96deg) scale(1.05);
+  transform: rotate(100deg) scale(1.05);
 }
 
 .bat-cursor[data-state='drag'] .bat-cursor__ring {
@@ -590,7 +590,7 @@ body.has-bat-cursor * {
 
 @keyframes batSwing {
   0% {
-    transform: rotate(38deg) scale(1);
+    transform: rotate(45deg) scale(1);
   }
   38% {
     transform: rotate(108deg) scale(1.14);
@@ -599,7 +599,7 @@ body.has-bat-cursor * {
     transform: rotate(20deg) scale(1.04);
   }
   100% {
-    transform: rotate(38deg) scale(1);
+    transform: rotate(45deg) scale(1);
   }
 }
 
